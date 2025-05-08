@@ -1,7 +1,11 @@
-
-import Directory from "./Components/Directory/directory.component";
+import { BrowserRouter } from "react-router-dom";
+import HomeRoute from "./Components/Routes/Home Routes/home.routes";
 const App = () => {
-  return <Directory />;
+  return (
+    <BrowserRouter>
+      <HomeRoute />
+    </BrowserRouter>
+  );
 };
 
 export default App;
