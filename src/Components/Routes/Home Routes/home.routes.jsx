@@ -1,21 +1,12 @@
 import { Routes, Route, Outlet } from "react-router-dom";
+// importing components
 import Directory from "../../Directory/directory.component";
-import { Fragment } from "react";
+import NavBar from "../Navigation Routes/navigation.routes";
 
 const Shop = () => {
   return <h1>i am shop</h1>;
 };
 
-const NavBar = () => {
-  return (
-    <Fragment>
-      <div>
-        <h1>i am navbar</h1>
-      </div>
-      <Outlet />
-    </Fragment>
-  );
-};
 
 function HomeRoute() {
   return (
