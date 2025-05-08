@@ -13,8 +13,8 @@ const NavBar = () => {
                 <Link to="/shop">shop</Link>
             </ul>
             <ul className="navlinks">
-                <Link  to="">Sign in</Link>
-                <Link  to="">Sign out</Link>
+                <Link  to="/signIn">Sign in</Link>
+                <Link  to="/signOut">Sign out</Link>
             </ul>
         </nav>
         </div>

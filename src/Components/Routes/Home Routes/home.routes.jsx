@@ -14,6 +14,8 @@ function HomeRoute() {
       <Route path="/" element={<NavBar />}>
         <Route index element={<Directory />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="signIn" element={<Shop />} />
+        <Route path="signOut" element={<Shop />} />
       </Route>
     </Routes>
   );
