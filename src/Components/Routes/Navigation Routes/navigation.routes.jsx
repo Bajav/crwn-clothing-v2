@@ -5,6 +5,7 @@ import './navgation.routes.styles.scss';
 const NavBar = () => {
     return (
       <Fragment>
+        <div className="nav">
         <nav className="nav-items">
             <Link to="">logo</Link>
             <ul className="navlinks">
@@ -16,6 +17,7 @@ const NavBar = () => {
                 <Link  to="">Sign out</Link>
             </ul>
         </nav>
+        </div>
         <Outlet />
       </Fragment>
     );

@@ -1,0 +1,37 @@
+.nav
+{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.nav-items
+{
+    display: flex;
+    align-items: center;
+    background: #0e0e0e;
+    justify-content: center;
+    gap: 10%;
+    border-radius: 30px;
+    width: 50%;
+    a{
+        color: #fefefe;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+    .navlinks
+    {
+        display: flex;
+        gap: 30px;
+    }
+    li{
+        list-style: none;
+    }
+}
+.navlinks
+{
+    a:hover
+    {
+        text-decoration: underline;
+    }
+}
