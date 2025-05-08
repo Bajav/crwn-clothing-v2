@@ -1,10 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import { Fragment } from "react";
 import HomeRoute from "./Components/Routes/Home Routes/home.routes";
 const App = () => {
   return (
-    <BrowserRouter>
+    <Fragment>
       <HomeRoute />
-    </BrowserRouter>
+    </Fragment>
   );
 };
 
