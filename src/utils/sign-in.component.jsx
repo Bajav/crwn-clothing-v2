@@ -5,6 +5,8 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAx9m4a-tKl7IyUvFu8BiZumVaaAnF6EcE",
   authDomain: "crwn-clothing-3ed9a.firebaseapp.com",
@@ -13,13 +15,15 @@ const firebaseConfig = {
   messagingSenderId: "903059589170",
   appId: "1:903059589170:web:5d8aac18b370da9572142b",
 };
-
 const firebaseApp = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider();
 
+// initializing provider
+const provider = new GoogleAuthProvider();
+// setting custion params || how we wnat the auth provider to act
 provider.setCustomParameters({
   prompt: "select_account",
 });
 
-const auth = getAuth(firebaseApp);
-export const signInWithPopup = () => signInWithPopup(auth);
+export const auth = getAuth(firebaseApp);
+export const signInWithPop = () => signInWithPopup(auth,provider);
+export const googleSignInRe = () => signInWithRedirect(auth,provider);
