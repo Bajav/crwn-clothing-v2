@@ -1,0 +1,14 @@
+input:focus
+{
+    outline: none;
+}
+.inputs
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    input
+    {
+        height: 30px;
+    }
+}
