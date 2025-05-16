@@ -35,4 +35,4 @@ export const createUserAuthFromDoc = async (userAuth) =>
   {
     const userRef = doc(db,"users",userAuth.uid);
     console.log(userRef);
-  }
+  };
