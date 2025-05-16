@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { useRef } from "react";
 
 
 const firebaseConfig = {
@@ -36,5 +37,22 @@ export const db = getFirestore();
 export const createUserAuthFromDoc = async (userAuth) =>
   {
     const userRef = doc(db,"users",userAuth.uid);
-    console.log(userRef);
+    const userSnapShot = await getDoc(userRef);
+    if(!userSnapShot.exists()){
+      const {displayName,email} = userAuth;
+      const createdAt = new Date(); 
+      try{
+        await setDoc(userRef,{
+          displayName,
+          email,
+          createdAt
+        });
+      }catch(error){
+        console.log(error);
+      }
+    }
+    return userRef;
+    // console.log("userSnapRef :: ",userRef);
+    // console.log("userSnapShot :: ",userSnapShot); 
+    // console.log("userSnapShotexits :: ",userSnapShot.exists());
   };
