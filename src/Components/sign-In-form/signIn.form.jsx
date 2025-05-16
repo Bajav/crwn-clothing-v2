@@ -1,9 +1,13 @@
 import Input from "../Inputs/inputs.component";
-
-function SignIn() {
+import './signIn.styles.scss';
+function SignInForm() {
+  const handleChange =()=>
+    {
+      console.log("change");
+    }
   return (
-    <div className="signIn">
-      ,
+    <div className="form">
+      <h1>sign in</h1>
       <form
         onSubmit={() => {
           "handlesubmit";
@@ -34,4 +38,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignInForm;
