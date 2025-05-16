@@ -3,12 +3,13 @@ import Input from "../Inputs/inputs.component";
 import "./signUp.styles.scss";
 
 function SignUpForm() {
-  const [inputs, setInputs] = useState({});
+    // form input functions 
+  const [inputs, setInputs] = useState(null);
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setInputs(values => ({...values, [name]: value}));
-    console.log(inputs);
+    // console.log(inputs);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ function SignUpForm() {
   return (
     <div className="form">
       <h3>sign up</h3>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <Input
           htmlFor="displayName"
           label="display name"
@@ -50,7 +51,11 @@ function SignUpForm() {
           name="co-password"
           change={handleChange}
         />
-        <button type="submit"  onSubmit={handleSubmit}>create account</button>
+        <div className="signUPBtns">
+        <button onClick={()=>{console.log("signup with google instead");
+        }}>sign up with google insted</button>
+        <button type="submit">create account</button>
+        </div>
       </form>
     </div>
   );
