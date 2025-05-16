@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "../Inputs/inputs.component";
 import "./signUp.styles.scss";
+import {signInWithPop,createUserAuthFromDoc} from '../../utils/firebase.utils';
 
 function SignUpForm() {
     // form input functions 
@@ -15,6 +16,15 @@ function SignUpForm() {
     e.preventDefault();
     console.log(inputs);
   };
+
+//   google function sign up with pop up
+const signUpwithPopUp = async () =>
+    {
+        const {user} = await signInWithPop();
+        // console.log(user);
+        const newUser = await createUserAuthFromDoc(user);
+        console.log(newUser);
+    }
   return (
     <div className="form">
       <h3>sign up</h3>
@@ -52,8 +62,7 @@ function SignUpForm() {
           change={handleChange}
         />
         <div className="signUPBtns">
-        <button onClick={()=>{console.log("signup with google instead");
-        }}>sign up with google insted</button>
+        <button onClick={signUpwithPopUp}>sign up with google insted</button>
         <button type="submit">create account</button>
         </div>
       </form>

@@ -16,8 +16,6 @@ function SignIn() {
   return (
     <section>
       <SignUpForm />
-      
-      <button onClick={googlePopUp}>sign in with google</button>
     </section>
   );
 }
