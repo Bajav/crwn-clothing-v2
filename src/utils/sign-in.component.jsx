@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { setDoc,getDoc, getFirestore, doc } from 'firebase/firestore';
 import {
   getAuth,
   signInWithRedirect,
@@ -19,6 +20,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 // initializing provider
 const provider = new GoogleAuthProvider();
+// initialize firestore db
+const db = getFirestore();
+
 // setting custion params || how we wnat the auth provider to act
 provider.setCustomParameters({
   prompt: "select_account",
@@ -27,3 +31,8 @@ provider.setCustomParameters({
 export const auth = getAuth(firebaseApp);
 export const signInWithPop = () => signInWithPopup(auth,provider);
 export const googleSignInRe = () => signInWithRedirect(auth,provider);
+export const createUserAuthFromDoc = async (userAuth) =>
+  {
+    const userRef = doc(db,"users",userAuth.uid);
+    console.log(userRef);
+  }

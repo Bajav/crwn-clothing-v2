@@ -1,10 +1,11 @@
-import { signInWithPop,googleSignInRe } from "../../../utils/sign-in.component";
+import { signInWithPop,googleSignInRe,createUserAuthFromDoc } from "../../../utils/sign-in.component";
 
 function SignIn() {
   const googlePopUp = async () => {
-    const response = await googleSignInRe();
-    console.log(response);
+    const {user} = await signInWithPop();
+    // console.log(user.uid);
     console.log("pop up func is working");
+    createUserAuthFromDoc(user.uid);
   };
 
   return <section>SignIn
