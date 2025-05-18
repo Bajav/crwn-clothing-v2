@@ -30,11 +30,19 @@ function SignUpForm() {
     }
     e.preventDefault();
     console.log(inputs);
-    setInputs(defaultForm);
     try {
-      const res = await createUserEmailPassword(email, password);
-      console.log(res);
+      const { user } = await createUserEmailPassword(email, password);
+      console.log(user);
+      await createUserAuthFromDoc(user, { displayName });
+      setInputs(defaultForm);
     } catch (err) {
+      if (err.code === "auth/email-already-in-use") {
+        alert(
+          "This email is already in use. Please sign in or use a different email."
+        );
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
       console.log(err);
     }
   };
