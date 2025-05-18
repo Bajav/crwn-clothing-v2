@@ -1,43 +1,49 @@
 import { useState } from "react";
 // importing components
-import { signInWithPop } from "../../utils/firebase.utils"; 
+import { signInWithPop } from "../../utils/firebase.utils";
 import Input from "../Inputs/inputs.component";
-import './signIn.styles.scss';
-
+import "./signIn.styles.scss";
 
 function SignInForm() {
   // states
-  const [inputs,setInputs ] = useState(null);
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
   // form functions
-  const handleChange =(e)=>
-    {
-      const {name,value} = e.target.name;
-      setInputs(values =>({...values,[name]:value}));
-    };
-    const handleSubmit =(e)=>
-      {
-        e.preventDefault();
-        console.log("submit is working");
-      };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInputs({
+      email: "",
+      password: "",
+    });
+    console.log("submit is working");
+  };
 
-      // google sign 
-      const googleSignIn = async ()=>
-        {
-          const res = signInWithPop ();
-          console.log("sign in pop up is working",res);
-        };
+  // google sign
+  const googleSignIn = async () => {
+   try {
+    const res = await signInWithPop();
+    console.log("sign in pop up is working", res);
+  } catch (error) {
+    console.error("Google Sign-In failed", error);
+  }
+  };
   return (
     <div className="form">
       <h1>sign in</h1>
-      <form
-        onSubmit={handleSubmit}
-      >
+      <form onSubmit={handleSubmit}>
         <Input
           htmlFor="email"
           label="email"
           type="email"
           placeholder="input email"
           name="email"
+          value ={inputs.email || ""}
           change={handleChange}
         />
         <Input
@@ -46,6 +52,7 @@ function SignInForm() {
           type="password"
           placeholder="enter password"
           name="password"
+          value ={inputs.password || ""}
           change={handleChange}
         />
         <div className="signUPBtns">

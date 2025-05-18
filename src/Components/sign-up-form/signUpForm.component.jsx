@@ -1,30 +1,43 @@
 import { useState } from "react";
 import Input from "../Inputs/inputs.component";
 import "./signUp.styles.scss";
-import {signInWithPop,createUserAuthFromDoc} from '../../utils/firebase.utils';
+import {
+  signInWithPop,
+  createUserAuthFromDoc,
+} from "../../utils/firebase.utils";
 
 function SignUpForm() {
-    // form input functions 
-  const [inputs, setInputs] = useState(null);
+  // form input functions
+  const [inputs, setInputs] = useState({
+    displayName: "",
+    email: "",
+    password: "",
+    coPassword: "",
+  });
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setInputs(values => ({...values, [name]: value}));
+    setInputs((values) => ({ ...values, [name]: value }));
     // console.log(inputs);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
+    setInputs({
+      displayName: "",
+      email: "",
+      password: "",
+      coPassword: "",
+    });
   };
 
-//   google function sign up with pop up
-const signUpwithPopUp = async () =>
-    {
-        const {user} = await signInWithPop();
-        // console.log(user);
-        const newUser = await createUserAuthFromDoc(user);
-        console.log(newUser);
-    }
+  //   google function sign up with pop up
+  const signUpwithPopUp = async () => {
+    const { user } = await signInWithPop();
+    // console.log(user);
+    const newUser = await createUserAuthFromDoc(user);
+    console.log(newUser);
+  };
   return (
     <div className="form">
       <h3>sign up</h3>
@@ -35,6 +48,7 @@ const signUpwithPopUp = async () =>
           type="text"
           placeholder="input displayName"
           name="displayName"
+          value={inputs.displayName || ""}
           change={handleChange}
         />
         <Input
@@ -43,6 +57,7 @@ const signUpwithPopUp = async () =>
           type="email"
           placeholder="enter email address"
           name="email"
+          value={inputs.email || ""}
           change={handleChange}
         />
         <Input
@@ -51,6 +66,7 @@ const signUpwithPopUp = async () =>
           type="password"
           placeholder="enter password"
           name="password"
+          value={inputs.password || ""}
           change={handleChange}
         />
         <Input
@@ -58,12 +74,13 @@ const signUpwithPopUp = async () =>
           label="co-password"
           type="password"
           placeholder="confirm password"
-          name="co-password"
+          name="coPassword"
+          value={inputs.coPassword || ""}
           change={handleChange}
         />
         <div className="signUPBtns">
-        <button onClick={signUpwithPopUp}>sign up with google insted</button>
-        <button type="submit">create account</button>
+          <button onClick={signUpwithPopUp}>sign up with google insted</button>
+          <button type="submit">create account</button>
         </div>
       </form>
     </div>

@@ -8,6 +8,7 @@ function Input(props) {
         placeholder={props.placeholder}
         name={props.name}
         onChange={props.change}
+        value={props.value}
         required
       />
     </div>
