@@ -4,6 +4,7 @@ import "./signUp.styles.scss";
 import {
   signInWithPop,
   createUserAuthFromDoc,
+  createUserEmailPassword,
 } from "../../utils/firebase.utils";
 
 function SignUpForm() {
@@ -15,16 +16,27 @@ function SignUpForm() {
   };
   // form input functions
   const [inputs, setInputs] = useState(defaultForm);
+  const { displayName, email, password, coPassword } = inputs;
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setInputs({...inputs, [name]: value });
+    setInputs({ ...inputs, [name]: value });
     // console.log(inputs);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    if (password !== coPassword) {
+      alert("Passwords do not match");
+      return;
+    }
     e.preventDefault();
     console.log(inputs);
     setInputs(defaultForm);
+    try {
+      const res = await createUserEmailPassword(email, password);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //   google function sign up with pop up
@@ -44,7 +56,7 @@ function SignUpForm() {
           type="text"
           placeholder="input displayName"
           name="displayName"
-          value={inputs.displayName || ""}
+          value={displayName || ""}
           change={handleChange}
         />
         <Input
@@ -53,7 +65,7 @@ function SignUpForm() {
           type="email"
           placeholder="enter email address"
           name="email"
-          value={inputs.email || ""}
+          value={email || ""}
           change={handleChange}
         />
         <Input
@@ -62,7 +74,7 @@ function SignUpForm() {
           type="password"
           placeholder="enter password"
           name="password"
-          value={inputs.password || ""}
+          value={password || ""}
           change={handleChange}
         />
         <Input
@@ -71,7 +83,7 @@ function SignUpForm() {
           type="password"
           placeholder="confirm password"
           name="coPassword"
-          value={inputs.coPassword || ""}
+          value={coPassword || ""}
           change={handleChange}
         />
         <div className="signUPBtns">
