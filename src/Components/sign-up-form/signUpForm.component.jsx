@@ -8,15 +8,16 @@ import {
 } from "../../utils/firebase.utils";
 
 function SignUpForm() {
+  // form input functions
+  const [inputs, setInputs] = useState(defaultForm);
+  const { displayName, email, password, coPassword } = inputs;
+  // ---reset form
   const defaultForm = {
     displayName: "",
     email: "",
     password: "",
     coPassword: "",
   };
-  // form input functions
-  const [inputs, setInputs] = useState(defaultForm);
-  const { displayName, email, password, coPassword } = inputs;
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
