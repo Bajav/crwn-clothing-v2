@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
+// components
+import { UserContext } from "../Contexts/user.context";
 import Input from "../Inputs/inputs.component";
 import "./signUp.styles.scss";
 import {
@@ -17,6 +19,7 @@ function SignUpForm() {
   };
   // form input functions
   const [inputs, setInputs] = useState(defaultForm);
+  const {setCurrentUser} = useContext(UserContext);
   const { displayName, email, password, coPassword } = inputs;
 
   const handleChange = (e) => {
@@ -25,7 +28,7 @@ function SignUpForm() {
     setInputs({ ...inputs, [name]: value });
     // console.log(inputs);
   };
-  
+
   const handleSubmit = async (e) => {
     if (password !== coPassword) {
       alert("Passwords do not match");
@@ -35,6 +38,7 @@ function SignUpForm() {
     console.log(inputs);
     try {
       const { user } = await createUserEmailPassword(email, password);
+      setCurrentUser(user);
       console.log(user);
       await createUserAuthFromDoc(user, { displayName });
       setInputs(defaultForm);
