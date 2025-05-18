@@ -5,33 +5,29 @@ import Input from "../Inputs/inputs.component";
 import "./signIn.styles.scss";
 
 function SignInForm() {
+  // default form fields
+  const defaultForm = { email: "", password: "" };
   // states
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-  });
+  const [inputs, setInputs] = useState(defaultForm);
   // form functions
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs((values) => ({ ...values, [name]: value }));
+     setInputs({...inputs, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInputs({
-      email: "",
-      password: "",
-    });
+    setInputs(defaultForm);
     console.log("submit is working");
   };
 
   // google sign
   const googleSignIn = async () => {
-   try {
-    const res = await signInWithPop();
-    console.log("sign in pop up is working", res);
-  } catch (error) {
-    console.error("Google Sign-In failed", error);
-  }
+    try {
+      const res = await signInWithPop();
+      console.log("sign in pop up is working", res);
+    } catch (error) {
+      console.error("Google Sign-In failed", error);
+    }
   };
   return (
     <div className="form">
@@ -43,7 +39,7 @@ function SignInForm() {
           type="email"
           placeholder="input email"
           name="email"
-          value ={inputs.email || ""}
+          value={inputs.email || ""}
           change={handleChange}
         />
         <Input
@@ -52,7 +48,7 @@ function SignInForm() {
           type="password"
           placeholder="enter password"
           name="password"
-          value ={inputs.password || ""}
+          value={inputs.password || ""}
           change={handleChange}
         />
         <div className="signUPBtns">

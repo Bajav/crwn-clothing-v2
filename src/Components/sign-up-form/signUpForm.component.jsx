@@ -7,28 +7,24 @@ import {
 } from "../../utils/firebase.utils";
 
 function SignUpForm() {
-  // form input functions
-  const [inputs, setInputs] = useState({
+  const defaultForm = {
     displayName: "",
     email: "",
     password: "",
     coPassword: "",
-  });
+  };
+  // form input functions
+  const [inputs, setInputs] = useState(defaultForm);
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
+    setInputs({...inputs, [name]: value });
     // console.log(inputs);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    setInputs({
-      displayName: "",
-      email: "",
-      password: "",
-      coPassword: "",
-    });
+    setInputs(defaultForm);
   };
 
   //   google function sign up with pop up
@@ -70,7 +66,7 @@ function SignUpForm() {
           change={handleChange}
         />
         <Input
-          htmlFor="co-password"
+          htmlFor="coPassword"
           label="co-password"
           type="password"
           placeholder="confirm password"
