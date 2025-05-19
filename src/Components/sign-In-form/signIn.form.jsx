@@ -12,7 +12,7 @@ function SignInForm() {
   // form functions
   const handleChange = (e) => {
     const { name, value } = e.target;
-     setInputs({...inputs, [name]: value });
+    setInputs({ ...inputs, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
