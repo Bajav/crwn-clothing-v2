@@ -16,7 +16,6 @@ function SignIn() {
 
   return (
     <section className="authPage">
-      <SignUpForm />
       <SignInForm />
     </section>
   );
