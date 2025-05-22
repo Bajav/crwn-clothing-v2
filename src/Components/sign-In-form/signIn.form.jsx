@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
+import {UserContext} from '../Contexts/user.context'
 // importing components
 import { signInWithPop } from "../../utils/firebase.utils";
 import Input from "../Inputs/inputs.component";
 import "./signIn.styles.scss";
 
 function SignInForm() {
+  // context
+  const {setCurrentUser} = useContext(UserContext);
   // default form fields
   const defaultForm = { email: "", password: "" };
   // states
@@ -23,7 +26,8 @@ function SignInForm() {
   // google sign
   const googleSignIn = async () => {
     try {
-      const res = await signInWithPop();
+      const {user} = await signInWithPop();
+      setCurrentUser(user);
       console.log("sign in pop up is working", res);
     } catch (error) {
       console.error("Google Sign-In failed", error);
