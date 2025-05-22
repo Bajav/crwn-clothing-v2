@@ -1,7 +1,12 @@
+import { useContext} from "react";
+import { UserContext } from "../../Contexts/user.context";
 import SignInForm from "../../sign-In-form/signIn.form";
 import './signIn.style.scss';
-function SignIn() {
 
+
+function SignIn() {
+const {currentUser} = useContext(UserContext);
+console.log(currentUser);
   return (
     <section className="authPage">
       <SignInForm />

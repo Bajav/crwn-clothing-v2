@@ -28,7 +28,7 @@ function SignInForm() {
     try {
       const {user} = await signInWithPop();
       setCurrentUser(user);
-      console.log("sign in pop up is working", res);
+      console.log("sign in pop up is working", user);
     } catch (error) {
       console.error("Google Sign-In failed", error);
     }
