@@ -6,7 +6,6 @@ import './signIn.style.scss';
 
 function SignIn() {
 const {currentUser} = useContext(UserContext);
-console.log(currentUser);
   return (
     <section className="authPage">
       <SignInForm />
