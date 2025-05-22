@@ -33,6 +33,7 @@ export const googleSignInRe = () => signInWithRedirect(auth, provider);
 // initialize firestore db
 export const db = getFirestore();
 export const createUserAuthFromDoc = async (userAuth) => {
+  
   if (!userAuth) return;
   const userRef = doc(db, "users", userAuth.uid);
   const userSnapShot = await getDoc(userRef);

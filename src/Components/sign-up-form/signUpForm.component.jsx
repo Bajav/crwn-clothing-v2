@@ -19,8 +19,9 @@ function SignUpForm() {
   };
   // form input functions
   const [inputs, setInputs] = useState(defaultForm);
-  const {setCurrentUser} = useContext(UserContext);
   const { displayName, email, password, coPassword } = inputs;
+  // context
+  const {setCurrentUser} = useContext(UserContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
