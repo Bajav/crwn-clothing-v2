@@ -32,7 +32,7 @@ export const googleSignInRe = () => signInWithRedirect(auth, provider);
 
 // initialize firestore db
 export const db = getFirestore();
-export const createUserAuthFromDoc = async (userAuth) => {
+export const createUserAuthFromDoc = async (userAuth,additionalinfo = {}) => {
   
   if (!userAuth) return;
   const userRef = doc(db, "users", userAuth.uid);
@@ -45,6 +45,7 @@ export const createUserAuthFromDoc = async (userAuth) => {
         displayName,
         email,
         createdAt,
+        ...additionalinfo
       });
     } catch (error) {
       console.log(error);

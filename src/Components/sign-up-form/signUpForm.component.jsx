@@ -1,4 +1,4 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 // components
 import { UserContext } from "../Contexts/user.context";
 import Input from "../Inputs/inputs.component";
@@ -21,7 +21,7 @@ function SignUpForm() {
   const [inputs, setInputs] = useState(defaultForm);
   const { displayName, email, password, coPassword } = inputs;
   // context
-  const {setCurrentUser} = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -31,11 +31,21 @@ function SignUpForm() {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      !displayName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !coPassword.trim()
+    ) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     if (password !== coPassword) {
       alert("Passwords do not match");
       return;
     }
-    e.preventDefault();
     console.log(inputs);
     try {
       const { user } = await createUserEmailPassword(email, password);
@@ -57,11 +67,16 @@ function SignUpForm() {
 
   //   google function sign up with pop up
   const signUpwithPopUp = async () => {
-    const { user } = await signInWithPop();
-    // console.log(user);
-    const newUser = await createUserAuthFromDoc(user);
-    console.log(newUser);
+    try {
+      const { user } = await signInWithPop();
+      await createUserAuthFromDoc(user);
+      setCurrentUser(user); // ✅ update context
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      alert("Google sign-in failed. Try again.");
+    }
   };
+
   return (
     <div className="form">
       <h3>sign up</h3>
@@ -72,7 +87,7 @@ function SignUpForm() {
           type="text"
           placeholder="input displayName"
           name="displayName"
-          value={displayName || ""}
+          value={displayName}
           change={handleChange}
         />
         <Input
@@ -81,7 +96,7 @@ function SignUpForm() {
           type="email"
           placeholder="enter email address"
           name="email"
-          value={email || ""}
+          value={email}
           change={handleChange}
         />
         <Input
@@ -90,7 +105,7 @@ function SignUpForm() {
           type="password"
           placeholder="enter password"
           name="password"
-          value={password || ""}
+          value={password}
           change={handleChange}
         />
         <Input
@@ -99,7 +114,7 @@ function SignUpForm() {
           type="password"
           placeholder="confirm password"
           name="coPassword"
-          value={coPassword || ""}
+          value={coPassword}
           change={handleChange}
         />
         <div className="signUPBtns">
