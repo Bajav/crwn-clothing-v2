@@ -1,8 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import './navgation.routes.styles.scss';
 
 const NavBar = () => {
+  const {userActive,setUserAc} = useState(false);
     return (
       <Fragment>
         <div className="nav">
@@ -12,11 +13,8 @@ const NavBar = () => {
                 <Link to="/">home</Link>
                 <Link to="/shop">shop</Link>
             </ul>
-            <ul className="navlinks">
-                <Link  to="/signUp">Sign up</Link>
-                <Link  to="/signIn">Sign in</Link>
-                <Link  to="/signOut">Sign out</Link>
-            </ul>
+                <button onClick={()=> {console.log("signUpis active");
+                }}>Sign up</button>
         </nav>
         </div>
         <Outlet />
