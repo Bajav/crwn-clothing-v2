@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { Fragment, useState } from "react";
 import './navgation.routes.styles.scss';
+import SignInOutFunc from "../../SigninOutFunc/SignInOutFunc.Component";
 
 const NavBar = () => {
   const {userActive,setUserAc} = useState(false);
@@ -13,8 +14,7 @@ const NavBar = () => {
                 <Link to="/">home</Link>
                 <Link to="/shop">shop</Link>
             </ul>
-                <button onClick={()=> {console.log("signUpis active");
-                }}>Sign up</button>
+                <SignInOutFunc />
         </nav>
         </div>
         <Outlet />
