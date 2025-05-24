@@ -1,26 +1,31 @@
-import "./SignInOut.styles.scss";
-import { Fragment, useState } from "react";
-import SignInForm from "../sign-In-form/signIn.form";
+import { useContext, useState } from "react";
+import { UserContext } from "../Contexts/user.context";
+import SignInModel from "../Models/SignIn model/SignIn.model";
 
-function SignInOutFunc() {
-  const [isUserACtive, setUserAc] = useState(false);
-  const signIn = () => {
-    setUserAc(true);
-    return <SignInForm />;
+function SignInOutButton() {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [showSignInModal, setShowSignInModal] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowSignInModal(true);
   };
-  const signOut = () => {
-    alert("user signed out");
-    setUserAc(false);
+
+  const handleSignOut = () => {
+    alert("User signed out");
   };
+
   return (
-    <Fragment>
-      {!isUserACtive ? (
-        <button onClick={signIn}>Sign In</button>
+    <>
+      {currentUser ? (
+        <button onClick={handleSignOut}>Sign Out</button>
       ) : (
-        <button onClick={signOut}>sign out</button>
+        <button onClick={handleSignInClick}>Sign In</button>
       )}
-    </Fragment>
+      {showSignInModal && (
+        <SignInModel onClose={() => setShowSignInModal(false)} />
+      )}
+    </>
   );
 }
 
-export default SignInOutFunc;
+export default SignInOutButton;
