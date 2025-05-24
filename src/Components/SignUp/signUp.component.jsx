@@ -3,7 +3,7 @@ import './signUp.styles.scss';
 
 function SignUp() {
   return (
-    <div>
+    <div className="signUp">
         <SignUpForm />
     </div>
   )

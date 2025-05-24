@@ -14,7 +14,10 @@ const NavBar = () => {
                 <Link to="/">home</Link>
                 <Link to="/shop">shop</Link>
             </ul>
-                <SignInOutFunc />
+                <Link to="/signIn">sign In</Link>
+                <Link to="/signUp">sign UP</Link>
+
+                {/* <SignInOutFunc /> */}
         </nav>
         </div>
         <Outlet />
