@@ -1,17 +1,20 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 // import styles
 import "./cart.styles.scss";
 // import components
-import chair from "../images/image.jpg";
+import CartItem from "../cartitem/cartItem.component";
 
 function Cart() {
   // state for cart
   const [dropDown, setDropDown] = useState(false);
   const [cartItems, setCartItems] = useState(0);
   // togle cart
-  const togleCart = (e) => {
+  const togleCart = () => {
     console.log("cart clicked");
     setDropDown(true);
+  };
+  const closeCart = () => {
+    setDropDown(false);
   };
   const cartArray = [
     {
@@ -24,27 +27,36 @@ function Cart() {
       itemName: "addidas sambas",
       itemPrice: 500,
     },
+      {
+      id: 3,
+      itemName: "addidas sambas",
+      itemPrice: 500,
+    },
+      {
+      id: 4,
+      itemName: "addidas sambas",
+      itemPrice: 500,
+    },
+      {
+      id: 5,
+      itemName: "addidas sambas",
+      itemPrice: 500,
+    },
   ];
-    useEffect(()=>{setCartItems(cartArray.length);},[])
+  useEffect(() => {
+    setCartItems(cartArray.length);
+  }, []);
   return (
     <div className="cartContainer" onClick={togleCart}>
-      <h6>cart <span>{cartItems}</span></h6>
-      {cartArray.map(({id,itemName,itemPrice}) => {
-        return (
-          <div key={id} className="dropDownCart">
-            <div className="cartItem">
-              <div className="imageContainer">
-                <img src={chair} />
-              </div>
-              <div className="itemData">
-                <h1>{itemName}</h1>
-                <h4>2 x ${itemPrice}</h4>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-      {/* {!dropDown ? <h1>hello</h1> :<h2>hi</h2>} */}
+      <h6>
+        cart <span>{cartItems}</span>
+      </h6>
+      <div className="dropDownCart">
+        {cartArray.map(({ id,itemName,itemPrice}) => {
+           return( <CartItem key={id} itemName={itemName} itemPrice={itemPrice}/>)
+        })}
+        <button onClick={closeCart}>close</button>
+      </div>
     </div>
   );
 }
