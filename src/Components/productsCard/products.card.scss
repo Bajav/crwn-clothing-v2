@@ -1,8 +1,9 @@
 .card-container
 {
-    background: #f3f3f3;
+    background: #ededed;
     width: 300px;
-    border: 1px #333333 solid;
+    height: 375px;
+    // border: 1px #333333 solid;
      border-radius: 10px;
     .imageContainer{
         // width: 95%;
@@ -24,6 +25,7 @@
     }
     .pricing
     {
+         width: 96%;
         display: flex;
         justify-content: space-between;
         padding: 8px;
@@ -34,5 +36,28 @@
             font-weight: 400;
             font-size: 15px;
         }
+    }
+    .functionsContainer
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    button
+    {
+        background-color: #333333;
+        color: #f3f3f3;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        text-transform: capitalize;
+        width: 98%;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 5px;
+    }
+     button:hover
+    {
+        background: #161616;
     }
 }
