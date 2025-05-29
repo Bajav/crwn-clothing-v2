@@ -5,12 +5,14 @@ import ProductCard from "../../productsCard/productsCard.component";
 import image from '../../images/image.jpg'
 // import styles
 import '../../productsCard/products.card.scss'
+import './shop.styles.scss';
 
 
 const Shop = () => {
   const { product } = useContext(ProductContext);
   return (
-    <div className="shop page">
+    <div className="shop_page">
+      <div className="productsContainer"> 
       {product.map(({ id, name, imageUrl, price }) => {
         // console.log(product);
         return (
@@ -28,6 +30,7 @@ const Shop = () => {
           </Fragment>
         );
       })}
+      </div>
     </div>
   );
 };
