@@ -5,6 +5,34 @@ import "./cart.styles.scss";
 import CartItem from "../cartitem/cartItem.component";
 
 function Cart() {
+          const cartArray = [
+        {
+          id: 1,
+          itemName: "addidas dmn",
+          itemPrice: 300,
+        },
+        {
+          id: 2,
+          itemName: "addidas sambas",
+          itemPrice: 500,
+        },
+          {
+          id: 3,
+          itemName: "addidas sambas",
+          itemPrice: 500,
+        },
+          {
+          id: 4,
+          itemName: "addidas sambas",
+          itemPrice: 500,
+        },
+          {
+          id: 5,
+          itemName: "addidas sambas",
+          itemPrice: 500,
+        },
+      ];
+
   // state for cart
   const [dropDown, setDropDown] = useState(true);
   // togle cart
@@ -21,13 +49,16 @@ function Cart() {
       <h6>
         cart <span>{0}</span>
       </h6>
-      {dropDown &&
-      <div className="dropDownCart">
-        {cartArray.map(({ id,itemName,itemPrice}) => {
-           return(<CartItem key={id} itemName={itemName} itemPrice={itemPrice}/>);
-        })}
-        <button onClick={closeCart}>close</button>
-      </div>}
+      {dropDown && (
+        <div className="dropDownCart">
+          {cartArray.map(({ id, itemName, itemPrice }) => {
+            return (
+              <CartItem key={id} itemName={itemName} itemPrice={itemPrice} />
+            );
+          })}
+          <button onClick={closeCart}>close</button>
+        </div>
+      )}
     </div>
   );
 }

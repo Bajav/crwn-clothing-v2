@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./cartItem.styles.scss";
 import chair from "../images/image.jpg";
 
@@ -39,8 +40,8 @@ function CartItem(item) {
         <img src={chair} />
       </div>
       <div className="itemData">
-        <h1>{itemName}</h1>
-        <h4>2 x ${itemPrice}</h4>
+        <h1>{item.itemName}</h1>
+        <h4>2 x ${item.itemPrice}</h4>
       </div>
     </div>
   );
