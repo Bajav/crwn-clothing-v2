@@ -1,11 +1,12 @@
-import { Fragment } from "react/jsx-runtime";
-import shopData from "../../data/Shop.data.json";
-
+import { useContext } from "react";
+import { ProductContext } from "../../Contexts/product.context";
 
 const Shop = () => {
+  const {product} = useContext(ProductContext)
   return (
     <div>
-      {shopData.map(({id,name})=>{
+      {product.map(({id,name})=>{
+        // console.log(id,name);
        return(
         <div key={id}>
           <h1>{name}</h1>
