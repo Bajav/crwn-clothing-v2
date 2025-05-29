@@ -53,7 +53,7 @@ function Cart() {
       </h6>
       <div className="dropDownCart">
         {cartArray.map(({ id,itemName,itemPrice}) => {
-           return( <CartItem key={id} itemName={itemName} itemPrice={itemPrice}/>)
+           return(<CartItem key={id} itemName={itemName} itemPrice={itemPrice}/>);
         })}
         <button onClick={closeCart}>close</button>
       </div>

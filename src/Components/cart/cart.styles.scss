@@ -23,6 +23,19 @@
     left: -96px;
     background: #f3f3f3;
     padding: 10px;
-    overflow: scroll;
+    overflow-y: scroll;
+  }
+  button
+  {
+    background: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: capitalize;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 5px;
+    color: #f3f3f3;
   }
 }
