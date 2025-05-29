@@ -2,34 +2,35 @@ import { Fragment, useContext } from "react";
 import { ProductContext } from "../../Contexts/product.context";
 // import components
 import ProductCard from "../../productsCard/productsCard.component";
-import image from '../../images/image.jpg'
+import image from "../../images/image.jpg";
 // import styles
-import '../../productsCard/products.card.scss'
-import './shop.styles.scss';
-
+import "../../productsCard/products.card.scss";
+import "./shop.styles.scss";
 
 const Shop = () => {
   const { product } = useContext(ProductContext);
   return (
     <div className="shop_page">
-      <div className="productsContainer"> 
-      {product.map(({ id, name, imageUrl, price }) => {
-        // console.log(product);
-        return (
-          <Fragment>
-            <div key={id} className="card-container">
-              <div className="imageContainer">
-                <img src={image} />
+      <div className="productsContainer">
+        {product.map(({ id, name, imageUrl, price }) => {
+          // console.log(product);
+          return (
+            <Fragment>
+              <div key={id} className="card-container">
+                <div className="imageContainer">
+                  <img src={image} />
+                </div>
+                <div className="functionsContainer">
+                  <div className="pricing">
+                    <h4>{name}</h4>
+                    <h4>${price}</h4>
+                  </div>
+                  <button>add to cart</button>
+                </div>
               </div>
-              <div className="functionsContainer">
-                <h4>{name}</h4>
-                <h4>${price}</h4>
-                <button>add to cart</button>
-              </div>
-            </div>
-          </Fragment>
-        );
-      })}
+            </Fragment>
+          );
+        })}
       </div>
     </div>
   );

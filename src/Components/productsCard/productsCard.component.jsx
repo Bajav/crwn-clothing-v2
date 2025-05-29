@@ -12,7 +12,6 @@ const ProductCard = (props) => {
             <h4>{props.price}</h4>
             <button>add to cart</button>
         </div>
-
     </div>
 };
 
