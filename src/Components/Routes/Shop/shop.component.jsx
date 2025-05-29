@@ -2,6 +2,11 @@ import { Fragment, useContext } from "react";
 import { ProductContext } from "../../Contexts/product.context";
 // import components
 import ProductCard from "../../productsCard/productsCard.component";
+import image from '../../images/image.jpg'
+// import styles
+import '../../productsCard/products.card.scss'
+
+
 const Shop = () => {
   const { product } = useContext(ProductContext);
   return (
@@ -12,11 +17,11 @@ const Shop = () => {
           <Fragment>
             <div key={id} className="card-container">
               <div className="imageContainer">
-                <img src={imageUrl} />
+                <img src={image} />
               </div>
               <div className="functionsContainer">
                 <h4>{name}</h4>
-                <h4>{price}</h4>
+                <h4>${price}</h4>
                 <button>add to cart</button>
               </div>
             </div>

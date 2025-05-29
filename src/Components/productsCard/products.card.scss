@@ -1,0 +1,13 @@
+.card-container
+{
+    background: #f3f3f3;
+    width: 300px;
+    .imageContainer{
+        width: 290px;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
