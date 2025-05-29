@@ -1,8 +1,5 @@
 .cartContainer {
-  position: absolute;
-  right: -85px;
-  z-index: 10;
-  top: -9px;
+
   h6 {
     color: #333;
     text-transform: capitalize;
@@ -19,16 +16,15 @@
     border-radius: 10px;
   }
   .dropDownCart {
-    position: relative;
-    left: -96px;
     background: #f3f3f3;
     padding: 10px;
+    border-radius: 10px;
     overflow-y: scroll;
   }
-  button
-  {
+  button {
     background: #333;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-size: 14px;
     font-weight: 300;
     text-transform: capitalize;
