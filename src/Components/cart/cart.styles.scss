@@ -1,15 +1,8 @@
 .cartContainer {
-  position: absolute;
-  width: 240px;
-  height: 340px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border: 1px solid black;
-  background-color: white;
-  top: 90px;
-  right: 40px;
-  z-index: 5;
+  img {
+    width: 40px;
+    position: relative;
+  }
   h6 {
     color: #333;
     text-transform: capitalize;
@@ -19,8 +12,11 @@
     font-weight: 500;
   }
   span {
-    background: #333;
-    color: #fff;
+    position: absolute;
+    z-index: 5;
+    right: 235px;
+    top: 25px;
+    color: #333;
     padding: 1px;
     font-size: 17px;
     border-radius: 10px;
