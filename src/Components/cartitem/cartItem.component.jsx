@@ -3,7 +3,7 @@ import "./cartItem.styles.scss";
 import chair from "../images/image.jpg";
 
 function CartItem(item) {
-  const {itemName,quantity,itemPrice}=item; 
+  const {itemName,itemPrice,quantity}=item; 
         return (
           <div className="cartItem">
             <div className="imageContainer">
