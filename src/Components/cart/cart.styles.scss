@@ -1,7 +1,9 @@
 .cartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     width: 40px;
-    position: relative;
   }
   h6 {
     color: #333;
@@ -13,9 +15,6 @@
   }
   span {
     position: absolute;
-    z-index: 5;
-    right: 235px;
-    top: 25px;
     color: #333;
     padding: 1px;
     font-size: 17px;
