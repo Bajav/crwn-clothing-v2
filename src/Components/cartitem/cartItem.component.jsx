@@ -49,6 +49,7 @@ function CartItem(item) {
           </div>
         );
       })}
+      <button>go to checkout</button>
     </div>
   );
 }
