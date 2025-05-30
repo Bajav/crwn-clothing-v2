@@ -7,15 +7,18 @@ import reportWebVitals from "./reportWebVitals";
 // contexts
 import { UserProvider } from "./Components/Contexts/user.context";
 import { ProductsProvider } from "./Components/Contexts/product.context";
+import { CartProvider } from "./Components/Contexts/Cart.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserProvider>
       <ProductsProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <CartProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartProvider>
       </ProductsProvider>
     </UserProvider>
   </React.StrictMode>

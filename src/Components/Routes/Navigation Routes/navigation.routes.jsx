@@ -1,12 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
-import { Fragment, useState } from "react";
+import { Fragment, useContext } from "react";
 import "./navgation.routes.styles.scss";
 import SignInOutFunc from "../../SigninOutFunc/SignInOutFunc.Component";
 import Cart from "../../cart/cart.component";
 import CartItem from "../../cartitem/cartItem.component";
+import { CartContext } from "../../Contexts/Cart.context";
+
 
 const NavBar = () => {
-  const { userActive, setUserAc } = useState(false);
+  const { isCartOpen } = useContext(CartContext)
   return (
     <Fragment>
       <div className="nav">
@@ -20,7 +22,7 @@ const NavBar = () => {
           </ul>
           <Cart />
         </nav>
-        <CartItem />
+        { isCartOpen && <CartItem />}
       </div>
       <Outlet />
     </Fragment>
