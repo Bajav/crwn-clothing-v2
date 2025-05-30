@@ -3,7 +3,7 @@ import { Fragment, useContext } from "react";
 import "./navgation.routes.styles.scss";
 import SignInOutFunc from "../../SigninOutFunc/SignInOutFunc.Component";
 import Cart from "../../cart/cart.component";
-import CartItem from "../../cartitem/cartItem.component";
+import CartDropDown from "../../cartDropDown/cartDropDown.component";
 import { CartContext } from "../../Contexts/Cart.context";
 
 
@@ -22,7 +22,7 @@ const NavBar = () => {
           </ul>
           <Cart />
         </nav>
-        { isCartOpen && <CartItem />}
+        { isCartOpen && <CartDropDown />}
       </div>
       <Outlet />
     </Fragment>

@@ -1,13 +1,13 @@
-import './cartdropDown.styles.jsx';
+import './cartdropDown.styles.scss';
 import CartItem from '../cartitem/cartItem.component.jsx';
 
-function cartDropDown() {
+function CartDropDown() {
   return (
        <div className="cartDropDown">
-        <CartItem />
+        {/* <CartItem /> */}
            <button>go to checkout</button>
        </div>
   )
 }
 
-export default cartDropDown
+export default CartDropDown;
