@@ -12,24 +12,9 @@ const Shop = () => {
   return (
     <div className="shop_page">
       <div className="productsContainer">
-        {product.map(({ id, name, imageUrl, price }) => {
+        {product.map((product) => {
           // console.log(product);
-          return (
-            <Fragment>
-              <div key={id} className="card-container">
-                <div className="imageContainer">
-                  <img src={image} />
-                </div>
-                <div className="functionsContainer">
-                  <div className="pricing">
-                    <h4>{name}</h4>
-                    <h4>${price}</h4>
-                  </div>
-                  <button>add to cart</button>
-                </div>
-              </div>
-            </Fragment>
-          );
+          return <ProductCard key={product.id} item={product} />;
         })}
       </div>
     </div>

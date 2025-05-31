@@ -13,9 +13,9 @@ function CartDropDown() {
   const { cartItems } = useContext(CartContext);
   return (
     <div className="cartDropDown">
-      {cartArray.map(({id,itemName,itemPrice,quantity}) => {
+      {cartItems.map(({id,itemName,itemPrice,quantity}) => {
         return (
-          <div className="cartItem">
+          <div key={id} className="cartItem">
             <div className="imageContainer">
               <img src={chair} />
             </div>

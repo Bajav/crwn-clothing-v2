@@ -1,7 +1,18 @@
 import { useState, createContext } from "react";
 
+let itemExist;
 const addCartItem = (cartItems, productToAdd) => {
-  const itemExist = cartItems.find((item) => item.id === productToAdd.id);
+  console.log("b4", itemExist);
+  cartItems.find((cartItem) => {
+    if (cartItem.id === productToAdd.id) {
+      itemExist = cartItem;
+      if(itemExist === false){
+        return {...cartItem,quantity: cartItem.quantity + 1}
+      }else{
+        return cartItem
+      }
+    };
+  });
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
