@@ -22,9 +22,3 @@ const Shop = () => {
 };
 
 export default Shop;
-//  <ProductCard
-//               key={id}
-//               name={name}
-//               imageUrl={imageUrl}
-//               price={price}
-//             />

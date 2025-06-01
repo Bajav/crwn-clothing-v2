@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { CartContext } from "../Contexts/Cart.context";
 import "./cartItem.styles.scss";
 import chair from "../images/image.jpg";
 
